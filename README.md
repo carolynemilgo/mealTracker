@@ -1,28 +1,10 @@
-# Tracker
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Author
+ Carolyne Milgo
+### Title
+ Meal Tracking Application
+### Description
+This app allows a user to log in details of meals consumed by recording the names, descriptions and caloric value. It allows one to filter the foods based on the amount of calories as well as displaying all the foods based on options chosen by the user.
+### Technologies used
+he project is implemented using angular2 JS
+###  Access and  set-up instructions
+The project is available on github through the link: .You can fork the project or clone it from github to your local machine. Open the command line at the project folder and run "ng serve". Open your browser on localhost: 4200, and start logging in your foods which will automatically change the foods displayed.

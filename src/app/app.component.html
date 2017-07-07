@@ -1,43 +1,41 @@
-
-<div style="text-align:center">
-  <h1>
+<div class="container-fluid">
+  <div style="text-align:center">
+    <h1>
      {{title}}
   </h1>
- <div *ngIf="selectedMeal">
-    <h2>{{selectedMeal.name}}</h2>
+    <div *ngIf="selectedMeal">
+      <h2>{{selectedMeal.name}}</h2>
+      <div>
+        <label>Name of Meal: </label>{{selectedMeal.name}}</div>
+      <input [(ngModel)]="selectedMeal.name" placeholder="name">
+      <div>
+        <label>Description: </label>{{selectedMeal.description}}
+        <input [(ngModel)]="selectedMeal.description" placeholder="name">
+      </div>
+      <div>
+        <label>Number of Calories: </label>{{selectedMeal.calories}}
+        <input [(ngModel)]="selectedMeal.calories" placeholder="name">
+      </div>
+    </div>
     <div>
-      <label>Name of Meal: </label>{{selectedMeal.name}}</div>
-     <input [(ngModel)]="selectedMeal.name" placeholder="name">
-<div>
-    <label>Description: </label>{{selectedMeal.description}}
-    <input [(ngModel)]="selectedMeal.description" placeholder="name">
-  </div>
-  <div>
-    <label>Number of Calories: </label>{{selectedMeal.calories}}
-   <input [(ngModel)]="selectedMeal.calories" placeholder="name">
-  </div>
-
-</div>
-
-<div>
-</div>
-
-<div>
-     <h2>Meals Eaten</h2>
-     <ul class="meals"><li [class.selected]="meal===selectedMeal" *ngFor="let meal of meals" (click)="onSelect(meal)">
-       <span class="badge">{{meal.name}}</span><p>Description:{{meal.description}}<p>Caloric Value:{{meal.calories}}
-     </li></ul>
-<addition (newMeal)="addMeals($event)"></addition>
-   </div>
-     <div class="filter">
-       <select (change)="onChange($event.target.value)">
+    </div>
+    <div>
+      <h2>Meals Eaten</h2>
+      <ul class="meals">
+        <li [class.selected]="meal===selectedMeal" *ngFor="let meal of meals" (click)="onSelect(meal)">
+          <span class="badge">{{meal.name}}</span>
+          <p>Description:{{meal.description}}
+            <p>Caloric Value:{{meal.calories}}
+        </li>
+      </ul>
+      <addition (newMeal)="addMeals($event)"></addition>
+    </div>
+    <div class="filter">
+      <select (change)="onChange($event.target.value)">
 <option value="all" selected="selected">Display All Foods</option>
 <option value="Above 500 Calories" selected="selected">View foods more than 500 calories</option>
 <<option value="Less that 500 Calories" selected="selected">View foods less than 500 calories</option>
        </select>
-
-
-
-
- <h1 *ngFor="let meal of meals | calories: selectedOption">{{meal.name}}</h1>
- </div>
+      <h1 *ngFor="let meal of meals | calories: selectedOption">{{meal.name}}</h1>
+    </div>
+  </div>

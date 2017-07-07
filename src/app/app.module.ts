@@ -13,7 +13,7 @@ import {CaloriesPipe} from './calories.pipe'
     AppComponent,
     AddMealsComponent,
     CaloriesPipe
-    //MealDetailsComponent
+
   ],
   imports: [
     BrowserModule,
