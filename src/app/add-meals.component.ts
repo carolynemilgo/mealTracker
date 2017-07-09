@@ -1,3 +1,4 @@
+//component to add new meals to existing list of meals
 import {Component, Output, EventEmitter} from '@angular/core';
 import {Meal, AppComponent} from './app.component';
 
@@ -10,8 +11,8 @@ import {Meal, AppComponent} from './app.component';
    <label> Brief Description </label>
    <input type="text" #desc><p>
     <label> Number of Calories </label>
-   <input type="number" #cal><p>
-   <button (click)="addMeals(newName.value,desc.value,cal.value);"> Edit Details</button>`
+   <input type="number" #cal><p><p><p>
+   <button (click)="addMeals(newName.value,desc.value,cal.value);"> Log details of a new meal</button>`
 
 })
 export class AddMealsComponent{
@@ -19,8 +20,6 @@ export class AddMealsComponent{
 addMeals( name:string, description:string, calories:number){
   var newMealToPush:Meal=new Meal(name, description,calories);
   this.newMeal.emit(newMealToPush);
-  // console.log(newMealToPush);
-
 
 }
 }

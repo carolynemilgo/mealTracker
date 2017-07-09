@@ -1,41 +1,74 @@
 <div class="container-fluid">
-  <div style="text-align:center">
-    <h1>
-     {{title}}
-  </h1>
-    <div *ngIf="selectedMeal">
-      <h2>{{selectedMeal.name}}</h2>
-      <div>
-        <label>Name of Meal: </label>{{selectedMeal.name}}</div>
-      <input [(ngModel)]="selectedMeal.name" placeholder="name">
-      <div>
-        <label>Description: </label>{{selectedMeal.description}}
-        <input [(ngModel)]="selectedMeal.description" placeholder="name">
-      </div>
-      <div>
-        <label>Number of Calories: </label>{{selectedMeal.calories}}
-        <input [(ngModel)]="selectedMeal.calories" placeholder="name">
-      </div>
+  <div class="entireBody">
+    <h2 align="center">{{title}} </h2>
+    <!-- Beginning of header section -->
+    <div class="header">
     </div>
-    <div>
-    </div>
-    <div>
-      <h2>Meals Eaten</h2>
-      <ul class="meals">
-        <li [class.selected]="meal===selectedMeal" *ngFor="let meal of meals" (click)="onSelect(meal)">
+    <!-- List of meals logged in by the user including those existing in the array -->
+    <div class="row">
+      <h3 align="center">List of meals logged</h3>
+      <hr/>
+      <div>
+        <div class="col-md-3" [class.selected]="meal===selectedMeal" *ngFor="let meal of meals" (click)="onSelect(meal)">
           <span class="badge">{{meal.name}}</span>
-          <p>Description:{{meal.description}}
-            <p>Caloric Value:{{meal.calories}}
-        </li>
-      </ul>
-      <addition (newMeal)="addMeals($event)"></addition>
+          <p><strong>Description:</strong>{{meal.description}}
+            <p><strong>Caloric Value:</strong>{{meal.calories}}
+        </div>
+      </div>
     </div>
-    <div class="filter">
-      <select (change)="onChange($event.target.value)">
-<option value="all" selected="selected">Display All Foods</option>
-<option value="Above 500 Calories" selected="selected">View foods more than 500 calories</option>
-<<option value="Less that 500 Calories" selected="selected">View foods less than 500 calories</option>
-       </select>
-      <h1 *ngFor="let meal of meals | calories: selectedOption">{{meal.name}}</h1>
+    <hr/>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- editing the details of an existing meal -->
+        <div class="col-md-4">
+          <h3>Edit meal details(click on any)</h3>
+          <hr/>
+          <div *ngIf="selectedMeal">
+            <h4 align="center"><strong>{{selectedMeal.name}}</strong></h4>
+            <div>
+              <label>Name of Meal: </label>{{selectedMeal.name}}
+              <p>
+                <input [(ngModel)]="selectedMeal.name" placeholder="name"></div>
+            <div>
+              <label>Description: </label>{{selectedMeal.description}}
+              <p>
+                <input [(ngModel)]="selectedMeal.description" placeholder="name">
+            </div>
+            <div>
+              <label>Number of Calories: </label>{{selectedMeal.calories}}
+              <p>
+                <input [(ngModel)]="selectedMeal.calories" placeholder="name">
+            </div>
+          </div>
+
+        </div>
+        <!-- Adding a new meal -->
+        <div class=col-md-3>
+          <div>
+            <h3>Add a new meal</h3>
+            <hr/>
+            <addition (newMeal)="addMeals($event)"></addition>
+          </div>
+        </div>
+        <!-- Filtering the logged foods based on the level of calories -->
+        <div class=col-md-5>
+          <h3> Filter foods by calories</h3>
+          <hr/>
+          <div class="filter">
+            <select (change)="onChange($event.target.value)">
+        <option value="all" selected="selected">Display All Foods</option>
+        <option value="Above 500 Calories" selected="selected">View foods more than 500 calories</option>
+        <option value="Less that 500 Calories" selected="selected">View foods less than 500 calories</option>
+           </select>
+            <p>
+              <ul>
+                <li *ngFor="let meal of meals | calories: selectedOption">{{meal.name}}</li>
+              </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <div>
+  </div>
+</div>

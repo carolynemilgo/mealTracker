@@ -13,12 +13,13 @@ import {CaloriesPipe} from './calories.pipe'
     AppComponent,
     AddMealsComponent,
     CaloriesPipe
-
   ],
+
   imports: [
     BrowserModule,
     FormsModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

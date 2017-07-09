@@ -1,14 +1,12 @@
+//Root component of the meal tracker application
 import { Component} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {AddMealsComponent} from './add-meals.component'
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-  // ./../styles.css',
-
+  styleUrls: ['./app.component.css'],
 
 })
 export class AppComponent {
@@ -17,18 +15,23 @@ export class AppComponent {
   public meals: Meal[] = [
     {
       name: 'Githeri',
-      description: 'crazy mixture of beans, maize and cabbages',
-      calories: 100
+      description: 'Crazy mixture of beans, maize and cabbages',
+      calories: 150
     },
     {
       name: 'Guacamole and plantain',
-      description: 'yuckiest food ever',
-      calories: 200
+      description: 'Yuckiest food ever. Yuck, yuck,yuck',
+      calories: 250
     },
     {
       name: 'Spaghetti and meatballs',
-      description: 'yummy palatable strings',
-      calories: 300
+      description: 'yummy palatable strings and juicy meatballs',
+      calories: 600
+    },
+    {
+      name: 'Barbeque chicken pizza',
+      description: '22inches and full of cheese, onion rings and chicken toppings',
+      calories: 1000
     }
   ];
 
@@ -50,6 +53,5 @@ export class AppComponent {
 export class Meal {
   constructor(public name: string, public description: string, public calories: number) {
   }
-
 
 }
