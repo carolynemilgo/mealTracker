@@ -2,8 +2,7 @@
 .entireBody {
   background-image: url("./../../images/321.jpg");
   background-size: cover;
-    /*background-color: pink;*/
-}
+  }
 .img{
   opacity:0.5;
 }
