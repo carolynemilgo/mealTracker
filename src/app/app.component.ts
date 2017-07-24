@@ -11,7 +11,7 @@ import {AddMealsComponent} from './add-meals.component'
 })
 export class AppComponent {
   title = 'Meal Tracker Application';
-
+//sample meals displayed under the logged meals in the app
   public meals: Meal[] = [
     {
       name: 'Githeri',
@@ -21,7 +21,7 @@ export class AppComponent {
     {
       name: 'Guacamole and plantain',
       description: 'Yuckiest food ever. Yuck, yuck,yuck',
-      calories: 250
+      calories: 550
     },
     {
       name: 'Spaghetti and meatballs',
@@ -42,6 +42,10 @@ export class AppComponent {
   addMeals(aNewMeal: Meal) {
     this.meals.push(aNewMeal);
   }
+  //function for butto to allow closure of form after editing a meal
+  toggleDone(meals: Meal){
+    this.selectedMeal= null;
+  }
 
   public selectedOption: string = "all";
   onChange(myOptions) {
@@ -53,5 +57,4 @@ export class AppComponent {
 export class Meal {
   constructor(public name: string, public description: string, public calories: number) {
   }
-
 }

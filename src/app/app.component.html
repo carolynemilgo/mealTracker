@@ -5,11 +5,16 @@
     <div class="header">
     </div>
     <!-- List of meals logged in by the user including those existing in the array -->
-    <div class="row">
+    <div class="row" align="center">
       <h3 align="center">List of meals logged</h3>
+      <select align="center" (change)="onChange($event.target.value)">
+  <option value="Above 500 Calories" selected="selected">View foods more than 500 calories</option>
+  <option value="Less than 500 Calories" selected="selected">View foods less than 500 calories</option>
+  <option value="all" selected="selected">Display All Foods</option>
+     </select>
       <hr/>
       <div>
-        <div class="col-md-3" [class.selected]="meal===selectedMeal" *ngFor="let meal of meals" (click)="onSelect(meal)">
+        <div class="col-md-3" [class.selected]="meal===selectedMeal" *ngFor="let meal of meals| calories: selectedOption" (click)="onSelect(meal)">
           <span class="badge">{{meal.name}}</span>
           <p><strong>Description:</strong>{{meal.description}}
             <p><strong>Caloric Value:</strong>{{meal.calories}}
@@ -39,8 +44,8 @@
               <p>
                 <input [(ngModel)]="selectedMeal.calories" placeholder="name">
             </div>
+            <button (click)="toggleDone()">Done</button>
           </div>
-
         </div>
         <!-- Adding a new meal -->
         <div class=col-md-3>
@@ -56,9 +61,10 @@
           <hr/>
           <div class="filter">
             <select (change)="onChange($event.target.value)">
-        <option value="all" selected="selected">Display All Foods</option>
+
         <option value="Above 500 Calories" selected="selected">View foods more than 500 calories</option>
-        <option value="Less that 500 Calories" selected="selected">View foods less than 500 calories</option>
+        <option value="Less than 500 Calories" selected="selected">View foods less than 500 calories</option>
+        <option value="all" selected="selected">Display All Foods</option>
            </select>
             <p>
               <ul>
